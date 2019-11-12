@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'centos'
+  vmImage: 'ubuntu-latest'
 
 steps:
 - script: echo Hello, world!
