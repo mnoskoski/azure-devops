@@ -5,6 +5,8 @@
     vmImage: 'Ubuntu-16.04'
 
   steps:
+    - script: |
+        ls
     - task: Maven@3
       inputs:
         mavenPomFile: 'pom.xml'
