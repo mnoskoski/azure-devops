@@ -3,19 +3,28 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+#you can add the trigger to execute this pipelines
 trigger:
 - master
 
 pool:
   vmImage: 'ubuntu-latest'
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
-
-- script: hostname
+stages:
+- stage: PrepareToExecuteJob
+  jobs:
+  - job: ExecuteLint
+    steps:
+    - script: |
+        sudo npm install jsonlint -g
+    #execute task 
+    - task: Bash@3
+      inputs:
+        filePath: '.azure-pipelines/hello_world.sh'
+      displayName: 'HelloWorld'
+    - script: tar -cvzf hello-world.tar.gz json/
+      displayName: 'Create file to upload'
+    - task: PublishPipelineArtifact@1
+      inputs:
+        targetPath: $(Build.SourcesDirectory)/hello-world.tar.gz
+        artifactName: HelloFile
