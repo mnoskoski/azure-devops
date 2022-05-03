@@ -4,3 +4,8 @@ az login (abrirá o browser)
 az account list
 az account set --subscription ID_SUBSCRIPTION
 az account list-locations -o table
+az devops login 
+az pipelines agent --help
+az pipelines agent show
+
+

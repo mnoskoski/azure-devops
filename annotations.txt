@@ -1,0 +1,3 @@
+export key1=`az keyvault secret show --name "versoes-deploy-tools-vault" --vault-name "az-keyvault-mnoskoski" --query value`
+echo "versoes-deploy-tools-vault1=$key1"
+
