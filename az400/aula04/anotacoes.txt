@@ -2,9 +2,9 @@
 resourceGroupName=az400ResourceGroup
 location=eastus
 
-# Set an admin login and password for your database
+# Set an admin login and password for your database - Fake password below 
 adminlogin=azureuser
-password=Azure1234567!
+password=12345678
 
 # Set a server name that is unique to Azure DNS (<server_name>.database.windows.net)
 serverName=server-$RANDOM
