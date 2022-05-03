@@ -32,7 +32,10 @@ https://docs.microsoft.com/pt-br/azure/devops/pipelines/process/stages?view=azur
 ```
 
 **Azure Pipelines - Exemplos**
+
 ![images](images/pipeline-example01.png)
+
+
 
 
 
