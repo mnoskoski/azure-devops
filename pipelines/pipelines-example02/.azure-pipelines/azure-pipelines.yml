@@ -24,13 +24,18 @@ stages:
       inputs:
         versionSpec: $(versionNpm)
 
-- stage: TestsApp
+- stage: TestsAuditApp
   jobs:
-  - job: TestIntegration
-    steps:
-      - script: date #executar um docker-compose up -d .
-
-- stage: DockerBuild
+    - job: npmInstall
+      steps:
+        - script:
+            echo "Executa NPM install"
+          displayName: installNPM
+        - script:
+            echo "Executa teu audit do NPM"
+          displayName: auditNPM
+        
+- stage: BuildApp
   jobs:
   - job: BuildImage
     steps:
@@ -39,7 +44,7 @@ stages:
       inputs:
         command: 'build'
         Dockerfile: '**/Dockerfile'
-    - task: CmdLine@2
+    - task: CmdLine@2 ## task de eemplo de algum script a ser adionado a mais 
       displayName: executeScript
       inputs:
         script: 'echo Hello World'
@@ -64,22 +69,5 @@ stages:
     - job:
       steps:
         - script: |
-            echo Continue
-        
-- stage: Question
-  variables:
-    - name: environment
-      value: DEVELOP
-  jobs: 
-    - job:
-      steps:
-        - script: |
-            echo ${{ variables.environment }}
-            echo $(environment)
-          displayName: Show value to environment variable
-        - bash: echo "##vso[task.setvariable variable=environment]HOMOLOG"
-          displayName: variableValue
-        - script: |
-            echo ${{ variables.environment }}
-            echo $(environment)
-          displayName: What is the value of environment?
+            echo "Continuar a criacao com o deploy em algum cloud provider"
+
