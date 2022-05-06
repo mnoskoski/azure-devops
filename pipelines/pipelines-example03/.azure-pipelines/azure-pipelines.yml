@@ -1,0 +1,85 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+  - master
+  - main
+  - develop
+  
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  versionNpm: '14.15.4'
+
+stages:
+- stage: DefineVersionNPM
+  jobs:
+  - job: DefineNPM
+    steps:
+    - task: NodeTool@0
+      displayName: 'Define Version Node'
+      inputs:
+        versionSpec: $(versionNpm)
+
+- stage: TestsApp
+  jobs:
+  - job: TestIntegration
+    steps:
+      - script: date #executar um docker-compose up -d .
+
+- stage: DockerBuild
+  jobs:
+  - job: BuildImage
+    steps:
+    - task: Docker@2
+      displayName: DockerBuild
+      inputs:
+        command: 'build'
+        Dockerfile: '**/Dockerfile'
+    - task: CmdLine@2
+      displayName: executeScript
+      inputs:
+        script: 'echo Hello World'
+
+- stage: CreateHelmPackage
+  jobs:
+  - job:
+    steps:
+      - script: |
+          helm create $(Build.ArtifactStagingDirectory)/test
+          helm package $(Build.ArtifactStagingDirectory)/test
+          ls -lah
+        displayName: 'Creating Helm package using shell'
+
+      - task: PublishBuildArtifacts@1
+        displayName: 'Publish Artifact: Helm Package'
+        inputs:
+          ArtifactName: drop
+
+- stage: DeployAppCloud
+  jobs: 
+    - job:
+      steps:
+        - script: |
+            echo Continue
+        
+- stage: Question
+  variables:
+    - name: environment
+      value: DEVELOP
+  jobs: 
+    - job:
+      steps:
+        - script: |
+            echo ${{ variables.environment }}
+            echo $(environment)
+          displayName: Show value to environment variable
+        - bash: echo "##vso[task.setvariable variable=environment]HOMOLOG"
+          displayName: variableValue
+        - script: |
+            echo ${{ variables.environment }}
+            echo $(environment)
+          displayName: What is the value of environment?
