@@ -14,10 +14,10 @@ stages:
         sudo npm install jsonlint -g
     - task: Bash@3
       inputs:
-        filePath: '.azure-pipelines/hello_world.sh'
+        filePath: './scripts/hello_world.sh'
       displayName: 'HelloWorld'
-    - script: tar -cvzf hello-world.tar.gz json/
-      displayName: 'Create file to upload'
+    - script: tar -cvzf hello-world.tar.gz log.txt
+      displayName: 'Create zip to upload'
     - task: PublishPipelineArtifact@1
       inputs:
         targetPath: $(Build.SourcesDirectory)/hello-world.tar.gz
@@ -27,3 +27,4 @@ stages:
   - job: dockerBuild
     steps:
     - script: echo 'docker build'
+    condition: eq(variables.job-build)

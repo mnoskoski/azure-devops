@@ -6,6 +6,11 @@ Material de Estudo e indicações de atalhos para o dia-a-dia usando Azure DevOp
 
 ## Azure DevOps - Pipelines
 
+## O que é o Azure DevOps?
+
+O Azure DevOps é a plataforma que a Azure criou para toda  aparte de automação de pipelines versionamento de código, versionamento de artefatos, controle de sprints. 
+No Azure DevOps podemos ter total controle, administração e visualização dos times e da criação de estágios durante a criação de um produto.
+
 **De forma geral o Azure DevOps**
 ```
 https://docs.microsoft.com/pt-br/azure/devops/pipelines/?view=azure-devops
@@ -34,6 +39,9 @@ https://docs.microsoft.com/pt-br/azure/devops/pipelines/process/stages?view=azur
 **Azure Pipelines - Exemplos**
 
 ![images](images/pipeline-example01.png)
+
+
+**Condições dentro de uma pipeline**
 
 
 
