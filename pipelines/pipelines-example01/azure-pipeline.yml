@@ -22,7 +22,7 @@ stages:
       inputs:
         targetPath: $(Build.SourcesDirectory)/hello-world.tar.gz
         artifactName: HelloFile
-- stages: BuildApp
+- stage: BuildApp
   jobs:
   - job: dockerBuild
     steps:
