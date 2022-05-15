@@ -2,6 +2,9 @@
 trigger:
 - master
 
+variables:
+  - template: variables/variables-pipeline.yaml
+
 pool:
   vmImage: 'ubuntu-latest'
 
