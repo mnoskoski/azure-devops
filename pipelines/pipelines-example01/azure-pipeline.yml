@@ -31,4 +31,4 @@ stages:
   - job: dockerBuild
     steps:
     - script: echo 'docker build'
-    condition: eq(variables.job-build)
+    condition: eq(variables.job-build,'true')
