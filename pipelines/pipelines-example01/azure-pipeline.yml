@@ -17,7 +17,7 @@ stages:
         sudo npm install jsonlint -g
     - task: Bash@3
       inputs:
-        filePath: './scripts/hello_world.sh'
+        filePath: './pipelines/pipelines-example01/scripts/hello_world.sh'
       displayName: 'HelloWorld'
     - script: tar -cvzf hello-world.tar.gz log.txt
       displayName: 'Create zip to upload'
