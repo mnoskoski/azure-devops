@@ -3,8 +3,8 @@ trigger:
 - master
 
 variables:
-  - name: job-build
-    value: true
+  - name: jobBuild
+    value: ''
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -31,4 +31,4 @@ stages:
   - job: dockerBuild
     steps:
     - script: echo 'docker build'
-    condition: eq(variables.job-build,'true')
+    condition: eq(variables.jobBuild,'t')
