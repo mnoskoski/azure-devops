@@ -3,7 +3,7 @@ trigger:
 - master
 
 variables:
-  template: pipelines/pipelines-example01/variables/variables-pipeline.yaml@mnoskoski/azure-devops
+  - template: pipelines/pipelines-example01/variables/variables-pipeline.yaml
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -16,6 +16,7 @@ stages:
     - script: | 
         echo ${{ variables.jobBuild }}
         echo $(jobBuild)
+      displayName: ShowVar
     - script: |
         sudo npm install jsonlint -g
     - task: Bash@3
