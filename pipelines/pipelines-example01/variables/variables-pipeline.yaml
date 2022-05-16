@@ -1,2 +1,6 @@
 variables:
-  jobBuild: 'teste'
+  isMain: $[eq(variables['Build.SourceBranch'], 'refs/heads/main')]
+  isDevelop: $[eq(variables['Build.SourceBranch'], 'refs/heads/develop')]
+  isPR: and(failed(), eq(variables['Build.Reason'], 'PullRequest'))
+  jobSecurity: 'true'
+  jobBuild: 'true'

@@ -13,10 +13,6 @@ stages:
   jobs:
   - job: ExecuteLint
     steps:
-    - script: | 
-        echo ${{ variables.jobBuild }}
-        echo $(jobBuild)
-      displayName: ShowVar
     - script: |
         sudo npm install jsonlint -g
     - task: Bash@3
@@ -34,4 +30,4 @@ stages:
   - job: dockerBuild
     steps:
     - script: echo '${{ variables.jobBuild }}'
-    condition: eq(variables.jobBuild, '')
+    condition: and(eq(variables.isMain, 'true'), eq(variables.jobBuild, 'true'))
