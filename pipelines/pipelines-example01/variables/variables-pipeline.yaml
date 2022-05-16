@@ -2,3 +2,5 @@ variables:
   job-security: 'true'
   job-test-build: 'true'
   job-build: 'true'
+  - name: jobBuild
+    value: 'true'

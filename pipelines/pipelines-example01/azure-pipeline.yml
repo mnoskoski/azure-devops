@@ -3,8 +3,7 @@ trigger:
 - master
 
 variables:
-  - name: jobBuild
-    value: ''
+  template: pipelines/pipelines-example01/variables/variables-pipeline.yaml
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -14,6 +13,9 @@ stages:
   jobs:
   - job: ExecuteLint
     steps:
+    - script: | 
+        echo ${{ variables.jobBuild }}
+        echo $(jobBuild)
     - script: |
         sudo npm install jsonlint -g
     - task: Bash@3
@@ -31,4 +33,4 @@ stages:
   - job: dockerBuild
     steps:
     - script: echo 'docker build'
-    condition: eq(variables.jobBuild,'t')
+    condition: eq(variables.jobBuild)
