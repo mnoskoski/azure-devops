@@ -32,5 +32,5 @@ stages:
   jobs:
   - job: dockerBuild
     steps:
-    - script: echo 'docker build'
+    - script: echo '${{ variables.jobBuild }}'
     condition: eq(variables.jobBuild, '')
