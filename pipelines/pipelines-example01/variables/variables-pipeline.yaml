@@ -5,3 +5,4 @@ variables:
   jobSecurity: 'true'
   jobBuild: 'true'
   jobHelm: 'true'
+  jobArtifacty: 'true'
