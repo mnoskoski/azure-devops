@@ -4,3 +4,4 @@ variables:
   isPR: and(failed(), eq(variables['Build.Reason'], 'PullRequest'))
   jobSecurity: 'true'
   jobBuild: 'true'
+  jobHelm: 'true'
