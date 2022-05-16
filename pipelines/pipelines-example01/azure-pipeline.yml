@@ -36,4 +36,4 @@ stages:
   - job: TestPR
     steps:
     - script: date
-    condition: (eq(variables.isPR, 'true'))
+    condition: eq(variables.isPR, 'true')
