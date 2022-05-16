@@ -31,3 +31,9 @@ stages:
     steps:
     - script: echo '${{ variables.jobBuild }}'
     condition: and(eq(variables.isMain, 'true'), eq(variables.jobBuild, 'true'))
+- stage:
+  jobs:
+  - job: TestPR
+    steps:
+    - script: date
+    condition: (eq(variables.isPR, 'true')
