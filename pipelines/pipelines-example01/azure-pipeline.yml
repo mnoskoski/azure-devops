@@ -3,7 +3,7 @@ trigger:
 - master
 
 variables:
-  - template: variables-pipeline.yaml
+  - template: variables/variables-pipeline.yaml
 
 pool:
   vmImage: 'ubuntu-latest'
