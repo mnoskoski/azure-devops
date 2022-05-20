@@ -10,7 +10,10 @@ Material de Estudo e indicações de atalhos para o dia-a-dia usando Azure DevOp
 
 O Azure DevOps é a plataforma que a Azure criou para toda  aparte de automação de pipelines versionamento de código, versionamento de artefatos, controle de sprints. 
 No Azure DevOps podemos ter total controle, administração e visualização dos times e da criação de estágios durante a criação de um produto.
-
+**De forma geral o Azure DevOps**
+```
+https://docs.microsoft.com/pt-br/azure/devops/pipelines/?view=azure-devops
+```
 ## Azure Pipelines
 
 O Azure Pipelines é a maneira que você pode automatizar a execução dos seus scrips.
@@ -34,18 +37,30 @@ Este cenário acima na prática você pode encontrar no arquivo:
 [Azure Pipelines](https://github.com/mnoskoski/azure-devops/blob/master/pipelines/pipelines-example02/.azure-pipelines/azure-pipelines.yml) 
 
 ```
-
-**De forma geral o Azure DevOps**
+**Stages**
 ```
-https://docs.microsoft.com/pt-br/azure/devops/pipelines/?view=azure-devops
+https://docs.microsoft.com/pt-br/azure/devops/pipelines/process/stages?view=azure-devops&tabs=yaml
+```
+
+**Jobs**
+```
+https://docs.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/jobs?view=azure-pipelines
+```
+
+**Steps**
+```
+https://docs.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/steps?view=azure-pipelines
+```
+
+**Tasks**
+```
+https://docs.microsoft.com/en-us/azure/devops/pipelines/process/tasks?view=azure-devops&tabs=yaml 
+```
+
 ```
 **Pipeline Azure - Estrutura**
 ```
   https://docs.microsoft.com/pt-br/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops
-```
-**Tasks**
-```
-https://docs.microsoft.com/en-us/azure/devops/pipelines/process/tasks?view=azure-devops&tabs=yaml 
 ```
 **Variáveis Azure**
 ```
@@ -55,24 +70,6 @@ https://docs.microsoft.com/pt-br/azure/devops/pipelines/process/variables?view=a
 ```
 https://docs.microsoft.com/pt-br/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml
 ```
-**Stages**
-```
-https://docs.microsoft.com/pt-br/azure/devops/pipelines/process/stages?view=azure-devops&tabs=yaml
-```
-
 **Azure Pipelines - Exemplos**
 
 ![images](images/pipeline-example01.png)
-
-
-**Condições dentro de uma pipeline**
-
-
-
-
-
-
-
-
-
-
