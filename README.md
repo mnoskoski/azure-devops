@@ -11,6 +11,30 @@ Material de Estudo e indicações de atalhos para o dia-a-dia usando Azure DevOp
 O Azure DevOps é a plataforma que a Azure criou para toda  aparte de automação de pipelines versionamento de código, versionamento de artefatos, controle de sprints. 
 No Azure DevOps podemos ter total controle, administração e visualização dos times e da criação de estágios durante a criação de um produto.
 
+## Azure Pipelines
+
+O Azure Pipelines é a maneira que você pode automatizar a execução dos seus scrips.
+
+O Azure DevOps dentro do panorama de CI/CD nos permite criar integrações e automações para versionar nosso código, buildar nossa aplicação, assim como publicar e deployar os nosso serviços.
+
+O Azure DevOps é escrito usando YAML. Temos diferentes maneira de criar nossas pipelines, mas uma sugestão é na estrutura abaixo e qual motivo para esta sugestão, facilidade na administração e facilidade em garantir que o padrão de escrita da pipeline ficará de fácil entendimento para todos que tiverem que dar manutenção na pipeline.
+
+```
+  |-- stages 
+  |   └── jobs 
+  |        └── steps
+  |             └── tasks
+  |-- stages 
+  |   └── jobs 
+  |        └── steps 
+  |             └── tasks 
+```
+Este cenário acima na prática você pode encontrar no arquivo:
+```
+[Azure Pipelines](https://github.com/mnoskoski/azure-devops/blob/master/pipelines/pipelines-example02/.azure-pipelines/azure-pipelines.yml) 
+
+```
+
 **De forma geral o Azure DevOps**
 ```
 https://docs.microsoft.com/pt-br/azure/devops/pipelines/?view=azure-devops
