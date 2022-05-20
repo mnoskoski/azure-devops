@@ -46,17 +46,13 @@ https://docs.microsoft.com/pt-br/azure/devops/pipelines/process/stages?view=azur
 ```
 https://docs.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/jobs?view=azure-pipelines
 ```
-
 **Steps**
 ```
 https://docs.microsoft.com/en-us/azure/devops/pipelines/yaml-schema/steps?view=azure-pipelines
 ```
-
 **Tasks**
 ```
 https://docs.microsoft.com/en-us/azure/devops/pipelines/process/tasks?view=azure-devops&tabs=yaml 
-```
-
 ```
 **Pipeline Azure - Estrutura**
 ```
