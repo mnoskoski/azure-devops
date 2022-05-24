@@ -53,4 +53,4 @@ stages:
     - task: PublishPipelineArtifact@1
       inputs:
         targetPath: $(Build.SourcesDirectory)/files-pipeline.tar.gz
-        artifactName: files-pipeline-$(Build.Repository.Name)-$(Build.BuildId)
+        artifactName: files-pipeline-$(Build.BuildId)
