@@ -19,7 +19,7 @@ stages:
   jobs:
   - job: ShowVariables
     steps:
-    - script: echo ${{ environment-dev }}
+    - script: echo $(environment-dev)
     displayName: show variables
 
 - stage: BuildApp
