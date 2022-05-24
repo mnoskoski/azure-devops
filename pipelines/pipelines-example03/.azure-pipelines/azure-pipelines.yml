@@ -34,16 +34,16 @@ stages:
 
 - stage: ScanSecurityCode
   jobs:
-  - job: npmInstall
+  - job: npmAudit
     steps:
       - script:
-          echo "Executa NPM install"
-        displayName: installNPM
-      - script:
-          echo "Executa teu audit do NPM"
-        displayName: auditNPM
+            npm --prefix $(pwd)/node-js-sample install 
+          displayName: install NPM
+        - script: |
+            npm --prefix $(pwd)/node-js-sample run audit 
+          displayName: audit NPM
 
-- stage: CreatePackage
+- stage: CreatePackagetoPublish
   jobs:
   - job:
     steps:
