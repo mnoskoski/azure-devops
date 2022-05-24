@@ -12,7 +12,7 @@ pool:
   vmImage: ubuntu-latest
 
 variables:
-  - template: variables/variables.yml
+  - template: ../variables/variables.yml
 
 stages:
 - stage: get_values
