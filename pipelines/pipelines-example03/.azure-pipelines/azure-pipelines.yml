@@ -1,0 +1,56 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+  - master
+  - main
+  - develop
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  - template: variables/variables.yml
+
+stages:
+- stage: get_values
+  jobs:
+  - job: ShowVariables
+    steps:
+    - script: echo ${{ environment-dev }}
+    displayName: show variables
+
+- stage: BuildApp
+  jobs:
+  - job: BuildImage
+    steps:
+    - task: Docker@2
+      displayName: DockerBuild
+      inputs:
+        command: 'build'
+        Dockerfile: '**/Dockerfile'
+
+- stage: ScanSecurityCode
+  jobs:
+  - job: npmInstall
+    steps:
+      - script:
+          echo "Executa NPM install"
+        displayName: installNPM
+      - script:
+          echo "Executa teu audit do NPM"
+        displayName: auditNPM
+
+- stage: CreatePackage
+  jobs:
+  - job:
+    steps:
+    - script: |
+        tar -cpvf files-pipeline.tar.gz .
+      displayName: 'Create zip to upload'
+    - task: PublishPipelineArtifact@1
+      inputs:
+        targetPath: $(Build.SourcesDirectory)/files-pipeline.tar.gz
+        artifactName: files-pipeline-$(Build.Id)

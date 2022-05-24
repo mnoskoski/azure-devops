@@ -1,0 +1,4 @@
+variables:
+  environment-dev: develop
+  environment-prod: producao
+  versionNpm: '14.15.4'
