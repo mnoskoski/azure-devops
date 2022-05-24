@@ -36,8 +36,9 @@ stages:
   jobs:
   - job: npmAudit
     steps:
-    - script:
-          npm --prefix $(pwd)/node-js-sample install 
+    - script: |
+          ls -lah
+        ## npm --prefix $(pwd)/$(Build.RepositoryName)/pipelines/pipelines-example03/node-js-sample install 
       displayName: install NPM
     - script: |
         npm --prefix $(pwd)/node-js-sample run audit 
