@@ -34,8 +34,6 @@ stages:
 
 - stage: ScanSecurityCode
   jobs:
-  strategy:
-    parallel: parallel
   - job: npmAudit
     steps:
     - script: |
