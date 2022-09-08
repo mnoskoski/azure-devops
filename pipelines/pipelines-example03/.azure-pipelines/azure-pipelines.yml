@@ -54,3 +54,17 @@ stages:
       inputs:
         targetPath: $(Build.SourcesDirectory)/files-pipeline.tar.gz
         artifactName: files-pipeline-$(Build.BuildId)
+
+- stage: CopyToServer
+  jobs:
+  - job:
+    pool: "vm-local"
+    steps:
+    - task: DownloadBuildArtifacts@1
+      inputs:
+        buildType: 'current'
+        downloadType: 'single'
+        artifactName: 'files-pipeline-$(Build.BuildId)'
+        downloadPath: '/home/test'
+      displayName: 'Download zip'
+  
