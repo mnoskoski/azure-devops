@@ -32,16 +32,16 @@ stages:
         command: 'build'
         Dockerfile: 'pipelines/pipelines-example03/Dockerfile'
 
-- stage: ScanSecurityCode
-  jobs:
-  - job: npmAudit
-    steps:
-    - script: |
-        npm --prefix pipelines/pipelines-example03/node-js-sample install 
-      displayName: install NPM
-    - script: |
-        npm --prefix pipelines/pipelines-example03/node-js-sample run audit 
-      displayName: audit NPM
+#- stage: ScanSecurityCode
+#  jobs:
+#  - job: npmAudit
+#    steps:
+#    - script: |
+#        npm --prefix pipelines/pipelines-example03/node-js-sample install 
+#      displayName: install NPM
+#    - script: |
+#        npm --prefix pipelines/pipelines-example03/node-js-sample run audit 
+#      displayName: audit NPM
 
 - stage: CreatePackagetoPublish
   jobs:
@@ -62,8 +62,6 @@ stages:
     steps:
     - task: DownloadBuildArtifacts@1
       inputs:
-        buildType: 'current'
-        downloadType: 'single'
         artifactName: 'files-pipeline-$(Build.BuildId)'
         downloadPath: '/home/test'
       displayName: 'Download zip'
